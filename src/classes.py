@@ -23,6 +23,7 @@ class VacancyApi(Vacancy):
         self.true_salary = True
 
     def call_to_api(self):
+        """Обращается к сайту hh.ru и возвращает ответ по заданным запросам"""
         req = requests.get('https://api.hh.ru/vacancies', params={'text': {self.name},
                                                                   'area': {self.area},
                                                                   'only_with_salary': {self.true_salary},
@@ -33,7 +34,8 @@ class VacancyApi(Vacancy):
 
     @staticmethod
     def to_json(file):
-        with open("../data/vacancy.txt", 'w') as f:
+        """Записывает полученные с сайта данные в JSON-файл"""
+        with open("data/vacancy.txt", 'w') as f:
             json.dump(file, f, indent=2, ensure_ascii=False)
 
 
@@ -43,7 +45,7 @@ class VacancyOutput:
     def json_text():
         """Открывает json-файл и возвращает словарь с вакансиями имеющими зарплату от ..."""
 
-        with open("../data/vacancy.txt", 'r') as file:
+        with open("data/vacancy.txt", 'r') as file:
             fcc_data = json.load(file)
             vacancy_with_from = {}
             c = 0
