@@ -26,7 +26,3 @@ class UserInput:
 
         return name, id_area, salary, true_salary
 
-test = UserInput.user_input()
-print(test)
-# for i in test:
-#     print(i)
