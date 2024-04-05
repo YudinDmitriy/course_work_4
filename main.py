@@ -1,6 +1,11 @@
-from src.classes import VacancyApi, VacancyOutput
+from src.VacancyApi import VacancyApi
+from src.VacancyOutput import VacancyOutput
+from src.user_input import UserInput
 
-hh_vacancy = VacancyApi()
+user_input = UserInput.user_input()
+
+
+hh_vacancy = VacancyApi(user_input[0], user_input[1], user_input[2], user_input[3])
 hh_vacancy.to_json(hh_vacancy.call_to_api())
 
 hh_out_vacancy = VacancyOutput()
